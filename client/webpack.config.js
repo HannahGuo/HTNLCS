@@ -26,6 +26,11 @@ module.exports = (env, argv) => ({
     path: path.join(__dirname, "build"),
     filename: "[name].[hash:4].js"
   },
+  devServer: {
+    proxy: {
+      "/api": "http://localhost:1010/"
+    }
+  },
   devtool: argv.mode === 'production' ? false : 'eval-source-maps',
   plugins: [
     ...htmlPlugins
