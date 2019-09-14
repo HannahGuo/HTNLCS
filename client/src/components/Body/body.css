@@ -9,3 +9,28 @@
     margin-right: 10vw;
     margin-top: 5vh;
 }
+
+.messageBox {
+    width: 100%;
+    height: 50vh;
+    background: rgb(210, 238, 247);
+}
+
+.chatBox {
+    width: 100%;
+    height: 10vh;
+    background: rgb(230, 239, 247);
+}
+
+.chatBoxText {
+    width: 90%;
+    height: 8vh;
+    margin-left: 0.5%;
+}
+
+.chatBoxButton {
+    width: 8.5%;
+    max-width: 10vw;
+    margin-left: 0.25%;
+    height: 8vh;
+}
