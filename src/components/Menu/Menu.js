@@ -10,9 +10,9 @@ export default class Menu extends Component {
         <img alt="Logo" src={Logo} className={style.Logo} />
         <h1>Botlingual</h1>
         <div className={style.Menu}>
-          <div to="/index.html"><a href="/index.html">Home</a></div>
-          <div to="/bot.html"><a href="/bot.html">Botlingual</a></div>
-          <div to="/profile.html"><a href="/profile.html">My Profile</a></div>
+          <div to="/index.html"><a href="/index.html" className={style.headerLink}>Home</a></div>
+          <div to="/bot.html"><a href="/bot.html" className={style.headerLink}>Botlingual</a></div>
+          <div to="/profile.html"><a href="/profile.html" className={style.headerLink}>My Profile</a></div>
         </div>
       </div>
     );

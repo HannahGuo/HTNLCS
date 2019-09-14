@@ -29,6 +29,8 @@ export default class BodyHome extends Component {
           <hr />
           <br />
           Made with ❤️ using ReactJS at Hack the North 2019 by Hannah Guo and William Qi.
+          <br />
+          <br />
         </div>
       </div>
     );
