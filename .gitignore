@@ -2,3 +2,4 @@ node_modules
 client2/node_modules
 google-config.json
 config/*.json
+**/package-lock.json
