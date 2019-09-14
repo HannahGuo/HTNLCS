@@ -1,0 +1,47 @@
+ * {
+   margin: 0;
+   padding: 0;
+ }
+
+
+
+ .Menu {
+   color: #808080;
+   font-family: 'Courier New';
+   display: flex;
+   flex-direction: row;
+   width: 80vw;
+   margin: 0 auto;
+   height: 10vh;
+   justify-content: space-around;
+   margin-top: 5vh;
+   align-items: center;
+   background-color: #4FB8F5;
+   color: white;
+ }
+
+ .Menu>div {
+   /* padding: 0.5vw; */
+   width:7.5vw;
+   text-align: center;
+   height: inherit;
+   line-height: 5vw;
+ }
+
+ .Menu>div:hover {
+  background-color: #72B6DD;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+ a {
+   text-decoration: none;
+   color: white;
+ }
+
+ .Logo {
+   display: block;
+   margin: auto;
+   border-radius: 10%;
+   margin-top: 5vh;
+ }
