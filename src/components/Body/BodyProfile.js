@@ -7,7 +7,6 @@ export default class BodyProfile extends Component {
     return (
       <div className="all">
         <div className={style.hello}>
-          <h1>Welcome to LCS...</h1>
           <span>
             A conversational tool that allows you to practice speaking different
             languages, while also tracking statistics of your conversation in order to help you
