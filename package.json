@@ -6,7 +6,7 @@
   "scripts": {
     "server": "node app.js",
     "server-dev": "nodemon app.js",
-    "client": "cd client2 && npm run-script start",
+    "client": "cd client && npm run-script start",
     "run": "run-p server client",
     "run-dev": "run-p server-dev client"
   },
