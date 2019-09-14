@@ -1,13 +1,149 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>My Profile</title>
-    <link rel="stylesheet" type="text/css" href="./styles.css">
-    <script src="/public/api.js"></script>
+    <script>
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                exportEnabled: true,
+                animationEnabled: true,
+                data: [{
+                    type: "pie",
+                    startAngle: 25,
+                    toolTipContent: "<b>{label}</b>: {y}%",
+                    showInLegend: "true",
+                    legendText: "{label}",
+                    indexLabelFontSize: 16,
+                    indexLabel: "{label} - {y}%",
+                    dataPoints: [{
+                            y: 51.08,
+                            label: "Chrome"
+                        },
+                        {
+                            y: 27.34,
+                            label: "Internet Explorer"
+                        },
+                        {
+                            y: 10.62,
+                            label: "Firefox"
+                        },
+                        {
+                            y: 5.02,
+                            label: "Microsoft Edge"
+                        },
+                        {
+                            y: 4.07,
+                            label: "Safari"
+                        },
+                        {
+                            y: 1.22,
+                            label: "Opera"
+                        },
+                        {
+                            y: 0.44,
+                            label: "Others"
+                        }
+                    ]
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        h2 {
+            margin-bottom: 2vh;
+        }
+
+        li {
+            margin-top: 1vh;
+        }
+
+        a {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #00457a;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        
+
+        #footer {
+            margin-left: 10vw;
+        }
+    </style>
 </head>
+
 <body>
     <div id="menu"></div>
     <div id="body"></div>
+    <div style="width: 100%; text-align: center">
+        <h3>Table of Contents:</h3>
+        <ul>
+            <li><a href="#chartContainer">Most Common Languages</a></li>
+            <li><a href="#miscStats">Miscellaneous Stats</a></li>
+            <li><a href="#pastLogs">Past Logs</a></li>
+        </ul>
+    </div>
+    <br>
+    <hr style="width: 80%; margin: 0 auto">
+    <br>
+    <h2 style="margin-left: 10vw">Your Most Common Languages</h2>
+    <div id="chartContainer" style="height: 300px; width: 80%; margin: 0 auto; margin-bottom: 5vh"></div>
+    <div id="miscStats" style="height: 300px; width: 80%; margin: 0 auto; margin-bottom: 5vh">
+        <h2>Miscellaneous Stats:</h2>
+    </div>
+    <div id="pastLogs" style="height: 300px; width: 80%; margin: 0 auto; margin-bottom: 5vh">
+        <h2>Past Logs</h2>
+    </div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">↑ Scroll to Top ↑</button>
+    <div id="footer">
+        <hr />
+        <br />
+        Made with ❤️ using ReactJS at Hack the North 2019 by Hannah Guo and William Qi.
+        <br />
+        <br />
+    </div>
 </body>
+
+<script>
+    var mybutton = document.getElementById("myBtn");
+
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) mybutton.style.display = "block";
+        else mybutton.style.display = "none";
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+
 </html>

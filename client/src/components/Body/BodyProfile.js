@@ -5,26 +5,15 @@ import style from './body.css';
 export default class BodyProfile extends Component {
   render() {
     return (
-      <div className="all">
+      <div className={style.all}>
         <div className={style.hello}>
+          <h2>Welcome to Your Profile</h2>
+          <br />
           <span>
-            A conversational tool that allows you to practice speaking different
-            languages, while also tracking statistics of your conversation in order to help you
-            improve.
-            <br />
-            <br />
-            Simply access the Linguisbit tab in the menu above to begin chatting with the bot.
-            <br />
-            <br />
-            The My Profile Section in the menu above will allow you view all of your past
-            conversations.
+            On this page, you can view all the stats of your past learning sessions!
           </span>
           <br />
           <br />
-          <h2>Happy Langauge Practicing!</h2>
-          <br />
-          <br />
-          Made with ❤️ using ReactJS at Hack the North 2019 by Hannah Guo and William Qi.
         </div>
       </div>
     );
