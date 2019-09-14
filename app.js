@@ -52,15 +52,34 @@ app.post("/api/grade", async (req, res) => {
     }
 
     const syntax = await analyzeSyntax(data.text);
+    const nounsAndVerbs = syntax.filter(w => w.partOfSpeech.tag === "NOUN" || w.partOfSpeech.tag === "VERB")
+        .map(word => word.text.content.toLocaleLowerCase());
+    const uniqueWords = nounsAndVerbs
+        .filter((word, i) => nounsAndVerbs.indexOf(word) === i);
 
-    const spellingGrade = correctResponse.split("").filter((c, i) => data.text.charAt(i) === c).length / correctResponse.length * 100; // How many characters are in the correct position?
-    const uniquenessGrade = 123; // TODO: analyzeSyntax and check previous conversations.
+    const spellingGrade = correctResponse.trim().split("").filter((c, i) => data.text.trim().charAt(i) === c).length / correctResponse.length * 100; // How many characters are in the correct position?
+    const uniquenessGrade = uniqueWords.length / nounsAndVerbs.length * 100; // TODO: analyzeSyntax and check previous conversations.
+
+    const mostCommonWords = {};
+    for (const word of nounsAndVerbs) {
+        mostCommonWords[word] = (mostCommonWords[word] || 0) + 1;
+    }
+
+    const tooCommonWords = [];
+    for (const word in mostCommonWords) {
+        if (mostCommonWords[word] > 3) {
+            tooCommonWords.push(word);
+        }
+    }    
 
     const payload = {
-        grade: spellingGrade,
+        grade: {
+            total: (spellingGrade + uniquenessGrade) / 2,
+            spelling: spellingGrade,
+            uniqueness: uniquenessGrade
+        },
         words: {
-            commonlyUsed: [], // TODO: Requires firebase storage/authentication
-            improvements: []  // TODO: Common words/easy spelling mistakes
+            commonlyUsed: tooCommonWords
         },
         majorImprovements: [], // TODO: Language level
         text: data.text,
