@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import style from './body.css';
 
-export default class BodyBot extends Component {
+export default class BodyHome extends Component {
   render() {
     return (
       <div className="all">

@@ -1,30 +1,32 @@
 {
-  "name": "multi-page-app-with-react",
+  "name": "htn",
   "version": "1.0.0",
-  "description": "Multi Page Application with React",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint --ext .jsx,.js src",
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --hot --open --port 3100"
+    "server": "node app.js",
+    "server-dev": "nodemon app.js",
+    "client": "cd client && npm run-script start",
+    "run": "run-p server client",
+    "run-dev": "run-p server-dev client"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/przemek-nowicki/multi-page-app-with-react.git"
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/language": "^3.2.6",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^8.5.0",
+    "node-fetch": "^2.6.0",
+    "socket.io": "^2.2.0",
+    "synonyms": "^1.0.1",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
-  "keywords": [
-    "react mpa",
-    "webpack4 multi-pages",
-    "react multi-page-app",
-    "react multi page application"
-  ],
-  "author": "Przemek Nowicki",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/przemek-nowicki/multi-page-app-with-react/issues"
-  },
-  "homepage": "https://github.com/przemek-nowicki/multi-page-app-with-react#readme",
   "devDependencies": {
+    "nodemon": "^1.19.2",
+    "npm-run-all": "^4.1.5",
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
@@ -43,10 +45,5 @@
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.8",
     "webpack-dev-server": "^3.8.0"
-  },
-  "dependencies": {
-    "eslint-import-resolver-alias": "^1.1.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
   }
 }
