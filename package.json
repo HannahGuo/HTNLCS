@@ -18,7 +18,8 @@
     "express": "^4.17.1",
     "firebase-admin": "^8.5.0",
     "node-fetch": "^2.6.0",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.2.0",
+    "synonyms": "^1.0.1"
   },
   "devDependencies": {
     "nodemon": "^1.19.2",

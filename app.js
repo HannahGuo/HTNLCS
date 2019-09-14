@@ -3,6 +3,7 @@ const express = require("express");
 const spellCheck = require("./src/utils/spellCheck");
 const analyzeSyntax = require("./src/utils/analyzeSyntax");
 const firebase = require("firebase-admin");
+const synonyms = require("synonyms");
 const app = express();
 const server = require("http").createServer(app);
 const socket = require("socket.io")(server);
@@ -52,8 +53,9 @@ app.post("/api/grade", async (req, res) => {
     }
 
     const syntax = await analyzeSyntax(data.text);
-    const nounsAndVerbs = syntax.filter(w => w.partOfSpeech.tag === "NOUN" || w.partOfSpeech.tag === "VERB")
+    const nounsAndVerbs = syntax.filter(w => w.partOfSpeech.tag === "NOUN" || w.partOfSpeech.tag === "VERB" || w.partOfSpeech.tag === "ADJ" || w.partOfSpeech.tag === "X")
         .map(word => word.text.content.toLocaleLowerCase());
+
     const uniqueWords = nounsAndVerbs
         .filter((word, i) => nounsAndVerbs.indexOf(word) === i);
 
@@ -70,7 +72,15 @@ app.post("/api/grade", async (req, res) => {
         if (mostCommonWords[word] > 3) {
             tooCommonWords.push(word);
         }
-    }    
+    }
+
+    const suggestions = {};
+    for (const word of tooCommonWords) {
+        const suggestion = synonyms(word);
+        if (suggestion && (suggestion.n || suggestion.v)) {
+            suggestions[word] = (suggestion.n || suggestion.v).filter(w => w !== word);
+        }
+    }
 
     const payload = {
         grade: {
@@ -79,14 +89,16 @@ app.post("/api/grade", async (req, res) => {
             uniqueness: uniquenessGrade
         },
         words: {
-            commonlyUsed: tooCommonWords
+            suggestions
         },
         majorImprovements: [], // TODO: Language level
         text: data.text,
         averageWordsPerSentence: sentences.map(sentence => sentence.split(/ +/).filter(word => word.length > 0).length)
             .reduce((a, b) => {
                 return a + b
-            }, 0) / sentences.length
+            }, 0) / sentences.length,
+        markedOn: new Date(),
+
     };
 
     database.ref("grades").push(payload);
