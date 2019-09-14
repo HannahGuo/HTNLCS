@@ -8,10 +8,11 @@ export default class Menu extends Component {
     return (
       <div className="all">
         <img alt="Logo" src={Logo} className={style.Logo} />
+        <h1>Botlingual</h1>
         <div className={style.Menu}>
-          <div><a href="/index.html">Home</a></div>
-          <div><a href="/bot.html">Linguisbit</a></div>
-          <div><a href="/profile.html">My Profile</a></div>
+          <div to="/index.html"><a href="/index.html">Home</a></div>
+          <div to="/bot.html"><a href="/bot.html">Botlingual</a></div>
+          <div to="/profile.html"><a href="/profile.html">My Profile</a></div>
         </div>
       </div>
     );

@@ -3,11 +3,8 @@
    padding: 0;
  }
 
-
-
  .Menu {
    color: #808080;
-   font-family: 'Courier New';
    display: flex;
    flex-direction: row;
    width: 80vw;
@@ -16,20 +13,21 @@
    justify-content: space-around;
    margin-top: 5vh;
    align-items: center;
-   background-color: #4FB8F5;
+   background-color: #00579E;
    color: white;
  }
 
  .Menu>div {
-   /* padding: 0.5vw; */
    width:7.5vw;
    text-align: center;
    height: inherit;
    line-height: 5vw;
+   padding: 0 2vw;
+   max-width: 7.5vw;
  }
 
- .Menu>div:hover {
-  background-color: #72B6DD;
+ .Menu> div:hover {
+  background-color: #00457a;
   font-weight: bold;
   cursor: pointer;
 }
@@ -44,4 +42,12 @@
    margin: auto;
    border-radius: 10%;
    margin-top: 5vh;
+   height: 20vh;
+   width: auto;
+ }
+
+ h1 {
+   text-align: center;
+   font-family: "Courier";
+   color: #00579E;
  }
