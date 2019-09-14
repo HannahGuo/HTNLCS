@@ -13,8 +13,7 @@ const analyzeSyntax = async content => {
             type: "PLAIN_TEXT"
         }
     });
-    console.log(result);
-    return [];
+    return result.tokens;
 };
 
 module.exports = analyzeSyntax;

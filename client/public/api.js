@@ -28,7 +28,9 @@ ChatAPI.emit = function (event, ...args) {
     (ChatAPI.listeners[event] || []).map(callback => callback.apply(null, args));
 };
 
-ChatAPI.io = io();
+if (window.io) {
+    ChatAPI.io = io();
+}
 
 // "ready" event gives you the room name to listen for.
 // "message" event gives data when any message is sent to any room.
