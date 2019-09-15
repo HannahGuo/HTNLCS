@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable linebreak-style */
 import React, { Component } from 'react';
@@ -15,8 +16,11 @@ export default class BodyHome extends Component {
             improve.
             <br />
             <br />
-            Access the <strong>Botlingual Chat</strong> to chat with the bot,
-            and check <strong>My Profile</strong> to view your past conversations,
+            Access the
+            Botlingual Chat
+            to chat with the bot, and check
+            My Profile
+            to view your past conversations,
             and track your progress!
           </span>
           <br />
