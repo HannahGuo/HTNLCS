@@ -22,7 +22,7 @@ export default class BodyBot extends Component {
             </div>
           </div>
 
-          <div data-tab="chat" data-hidden>
+          <div data-tab="chat">
             <h2 data-key="language">English</h2> <span>Want to be evalulated on your linguistic skills? Type <i>/done</i></span>
             <div className={style.messageBox} id="chatBox"></div>
             <div className={style.chatBox}>
