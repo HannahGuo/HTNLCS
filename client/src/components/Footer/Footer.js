@@ -11,10 +11,7 @@ export default class Footer extends Component {
       <div>
         <hr style={lineStyle} />
         <br />
-          Made with ❤️ using ReactJS, Node.js, Firebase (Realtime Database and Authentication),
-          Google Cloud Natural Language API, and
-        <br />
-        EmailJS at Hack the North 2019 by Hannah Guo and William Qi.
+          Made with ❤️ at Hack the North 2019 by Hannah Guo and William Qi.
         <br />
         <br />
       </div>
