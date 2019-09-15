@@ -5,9 +5,10 @@ import style from './body.css';
 export default class BodyHome extends Component {
   render() {
     return (
-      <div className="all">
+      <div className={style.all}>
         <div className={style.hello}>
           <h2>Welcome to Botlingual</h2>
+          <br />
           <span>
             A conversational tool that allows you to practice speaking different
             languages, while also tracking statistics of your conversation in order to help you
@@ -22,10 +23,7 @@ export default class BodyHome extends Component {
           </span>
           <br />
           <br />
-          <h2>Happy Langauge Practicing!</h2>
-          <br />
-          <br />
-          Made with ❤️ using ReactJS at Hack the North 2019 by Hannah Guo and William Qi.
+          <h3>Botlingual!</h3>
         </div>
       </div>
     );

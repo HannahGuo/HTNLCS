@@ -29,9 +29,8 @@
    line-height: 5vw;
  }
 
- .Menu>div:hover {
-  background-color: #72B6DD;
-  font-weight: bold;
+ .Menu> div:hover {
+  background-color: #00457a;
   cursor: pointer;
 }
 

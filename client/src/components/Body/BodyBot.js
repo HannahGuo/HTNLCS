@@ -7,7 +7,7 @@ export default class BodyBot extends Component {
     return (
       <div className="all">
         <div className={style.hello}>
-          <div className={style.messageBox}></div>
+          <div className={style.messageBox} id="chatBox"></div>
           <div className={style.chatBox}>
             <input className={style.chatBoxText} id="chatInput" />
             <button className={style.chatBoxButton} id="sendChatButton">Send</button>
