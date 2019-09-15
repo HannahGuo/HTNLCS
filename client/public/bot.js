@@ -7,8 +7,8 @@ const channel = "english";
 
 
 const styles = {
-    ours: "float: left; max-width: 40%; padding: 1%; margin-left: 1%; background: lightblue; color: white; margin-top: 1%; margin-bottom: 1%;",
-    theirs: "float: right; max-width: 40%; padding: 1%; margin-right: 1%; background: gray; color: white; margin-top: 1%; margin-bottom: 1%;",
+    ours: "float: left; max-width: 40%; min-height: 25px; padding: 1%; margin-left: 1%; background: lightblue; color: white; margin-top: 1%; margin-bottom: 1%; overflow-x: hidden;",
+    theirs: "float: right; max-width: 40%; min-height: 25px; padding: 1%; margin-right: 1%; background: gray; color: white; margin-top: 1%; margin-bottom: 1%; overflow-x: hidden;",
     line: "width: 100%; float: left; text-align: center; color: black; margin-bottom: 1%;"
 };
 
@@ -36,7 +36,6 @@ window.addEventListener("load", () => {
                 channel, //TODO
             });
             document.querySelector("#chatInput").disabled = true;
-
 
             const data = await LanguageAPI.grade({
                 channel,
