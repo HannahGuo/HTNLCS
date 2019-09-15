@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable linebreak-style */
 import React, { Component } from 'react';
 import style from './body.css';
@@ -7,23 +8,19 @@ export default class BodyHome extends Component {
     return (
       <div className={style.all}>
         <div className={style.hello}>
-          <h2>Welcome to Botlingual</h2>
           <br />
           <span>
-            A conversational tool that allows you to practice speaking different
-            languages, while also tracking statistics of your conversation in order to help you
+            A conversational tool that lets you practice different
+            languages while tracking statistics of your conversation to help you
             improve.
             <br />
             <br />
-            Simply access the Linguisbit tab in the menu above to begin chatting with the bot.
-            <br />
-            <br />
-            The My Profile Section in the menu above will allow you view all of your past
-            conversations.
+            Access the <strong>Botlingual Chat</strong> to chat with the bot,
+            and check <strong>My Profile</strong> to view your past conversations,
+            and track your progress!
           </span>
           <br />
           <br />
-          <h3>Botlingual!</h3>
         </div>
       </div>
     );

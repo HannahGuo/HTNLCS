@@ -11,7 +11,7 @@ export default class Menu extends Component {
         <h1>Botlingual</h1>
         <div className={style.Menu}>
           <div to="/index.html"><a href="/about.html" className={style.headerLink}>Home</a></div>
-          <div to="/bot.html"><a href="/bot.html" className={style.headerLink}>Botlingual</a></div>
+          <div to="/bot.html"><a href="/bot.html" className={style.headerLink}>Botlingual Chat</a></div>
           <div to="/profile.html"><a href="/profile.html" className={style.headerLink}>My Profile</a></div>
         </div>
       </div>

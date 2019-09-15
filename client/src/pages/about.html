@@ -12,7 +12,9 @@
         })();
 
         var templateParams = {
-            name: 'Valuable User',
+            from_name: "Botlingual Team",
+            to_name: 'hguo2102@gmail.com',
+            subject: "Botlingual Signup",
             notes: 'Check this out!'
         };
 
@@ -20,18 +22,47 @@
             emailjs.send('gmail', 'template_pcvdPXWx', templateParams)
                 .then(function (response) {
                     console.log('SUCCESS!', response.status, response.text);
+                    alert("Notification sent!");
                 }, function (error) {
                     console.log('FAILED...', error);
                 });
         }
     </script>
+
+    <style>
+        #BL {
+            height: 12vw;
+            width: auto;
+            margin: 0 auto;
+            display: block;
+        }
+
+        hr {
+            width: 80vw;
+        }
+
+        #email {
+            margin-left: 10vw;
+            height: 5vw;
+            width: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto
+        }
+    </style>
 </head>
 
 <body>
     <div id="menu"></div>
+    <h2 style="margin-left: 10vw">Welcome to Botlingual! </h2><br>
+    <img id="BL" src="./src/pages/BL.PNG" />
     <div id="body"></div>
-    <h4>Want to make a good habit of practicing with Botlingual? Sign up by clicking <a href="#" onclick="signUp()"> here </a>for weekly
-        e-mails!</h4>
+    <hr style="margin-left: 10vw"><br>
+    <img id="email" src="./src/pages/email.png">
+    <br />
+    <h4 style="margin-left: 10vw;">Want to make a good habit of practicing with Botlingual? Sign up by clicking <a
+            href="#" onclick="signUp()"> here</a> for weekly reminder e-mails!</h4>
+    <br />
     <div id="footer" style="margin-left: 10vw;"></div>
 </body>
 

@@ -36,3 +36,9 @@
     margin-left: 0.25%;
     height: 8vh;
 }
+
+.BL {
+    float: right; 
+    height: 20vh; 
+    width: auto; 
+}
