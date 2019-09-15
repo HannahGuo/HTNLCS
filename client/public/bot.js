@@ -15,12 +15,21 @@ const styles = {
 let conversation = "";
 
 const joinedConversations = [channel];
+const conversationStates = {
+    // [language : string] : { value: "", disabled: false }
+};
+
+
 chatTable.push({
     message: "",
     author: username,
     type: "join",
     channel, //TODO
 });   
+conversationStates[channel] = {
+    value: "",
+    disabled: false
+};
 
 let latestData = {
     val: () => ({})
@@ -71,6 +80,16 @@ const loadChannel = language => {
         joinedConversations.push(language);
     }
 
+    if (!conversationStates[channel]) {
+        conversationStates[channel] = {
+            value: "",
+            disabled: false
+        };
+    }
+
+    document.querySelector("#chatInput").value = conversationStates[channel].value;
+    document.querySelector("#chatInput").disabled = conversationStates[channel].disabled;
+
 
     document.querySelector("h2[data-key='language']").textContent = channel.slice(0, 1).toLocaleUpperCase() + channel.slice(1);
     document.querySelector("input[data-key='input']").placeholder = `What do you want to say in ${channel.slice(0, 1).toLocaleUpperCase() + channel.slice(1)}?`;
@@ -83,11 +102,12 @@ const loadChannel = language => {
 };
 
 const sendChatMessage = async () => {
+    conversationStates[channel].value = "";
     const value = document.querySelector("#chatInput").value;
     document.querySelector("#chatInput").value = "";
     if (value.length === 0) return;
     if (value.toLocaleLowerCase() === "/done") { // We're done. Let's analyze our data.
-
+        conversationStates[channel].disabled = true;
         if (joinedConversations.includes(channel)) joinedConversations.splice(joinedConversations.indexOf(channel), 1);
 
         chatTable.push({
@@ -141,8 +161,9 @@ window.addEventListener("load", () => {
     });
 
     document.querySelector("#sendChatButton").addEventListener("click", sendChatMessage);
-    document.querySelector("#chatInput").addEventListener("keydown", e => {
+    document.querySelector("#chatInput").addEventListener("keyup", e => {
         if (e.keyCode === 13) sendChatMessage();
+        conversationStates[channel].value = document.querySelector("#chatInput").value;
     });
 
     
