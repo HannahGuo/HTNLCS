@@ -76,6 +76,8 @@
                 localStorage.setItem("email", user.email);
 
                 document.getElementById("proceed").style.display = "block";
+                document.getElementById("push").style.backgroundColor = "green";
+                document.getElementById("push").innerHTML = "Success!";
             }).catch(function (error) {
                 console.log("Could not sign in " + error.code);
             });
@@ -97,7 +99,7 @@
     <header>
         <img src="/src/pages/Logo.png"><br>
         <h1>Welcome to Botlingual!</h1>
-        <button href="#" onclick="logIn()">Sign in with Google to <br> access the main site</button>
+        <button href="#" onclick="logIn()" id="push">Sign in with Google to <br> access the main site</button>
         <br><br>
         <div id="proceed"><a onclick="logOut()" href="./about.html">Proceed to Main Site --></span></div>
     </header>
