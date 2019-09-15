@@ -24,6 +24,8 @@ export default class BodyBot extends Component {
           <br />
           <h2>Happy Langauge Practicing!</h2>
           <br />
+          <br />
+          Made with ❤️ using ReactJS at Hack the North 2019 by Hannah Guo and William Qi.
         </div>
       </div>
     );

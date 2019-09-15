@@ -29,6 +29,7 @@
 
  .Menu> div:hover {
   background-color: #00457a;
+  font-weight: bold;
   cursor: pointer;
 }
 
