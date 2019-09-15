@@ -83,9 +83,9 @@ app.post("/api/grade", async (req, res) => {
 
     const payload = {
         grade: {
-            total: (spellingGrade + uniquenessGrade) / 2,
-            spelling: spellingGrade,
-            uniqueness: uniquenessGrade
+            total: ((spellingGrade + uniquenessGrade) / 2) || 0,
+            spelling: spellingGrade || 0,
+            uniqueness: uniquenessGrade || 0
         },
         words: {
             suggestions
