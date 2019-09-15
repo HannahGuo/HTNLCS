@@ -8,7 +8,6 @@ export default class Menu extends Component {
     return (
       <div className="all">
         <img alt="Logo" src={Logo} className={style.Logo} />
-        <h1>Botlingual</h1>
         <div className={style.Menu}>
           <div to="/index.html"><a href="/about.html" className={style.headerLink}>Home</a></div>
           <div to="/bot.html"><a href="/bot.html" className={style.headerLink}>Botlingual</a></div>

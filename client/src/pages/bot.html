@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bot</title>
+    <script src="/public/api.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-functions.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDUBXLh7JIWPwEsDK0qBXFBXcFRP2VEGsk",
+            authDomain: "htn-lcs.firebaseapp.com",
+            databaseURL: "https://htn-lcs.firebaseio.com",
+            projectId: "htn-lcs",
+            storageBucket: "htn-lcs.appspot.com",
+            messagingSenderId: "1082875313386",
+            appId: "1:1082875313386:web:69b4ddfe3153b98479ab93"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="public/bot.js"></script>
+</head>
+<body>
+    <div id="menu"></div>
+    <div id="body"></div>
+    <div id="footer" style="margin-left: 10vw"></div>
+</body>
+</html>

@@ -70,6 +70,11 @@
         function logIn() {
             firebase.auth().signInWithPopup(provider).then(function (result) {
                 console.log("Signed in!");
+                
+                const user = result.user;
+                localStorage.setItem("username", user.displayName);
+                localStorage.setItem("email", user.email);
+
                 document.getElementById("proceed").style.display = "block";
             }).catch(function (error) {
                 console.log("Could not sign in " + error.code);
