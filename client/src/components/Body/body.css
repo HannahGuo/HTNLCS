@@ -97,6 +97,46 @@ div[data-language] {
     background: #00457a;
 }
 
+.modalBackground {
+    background: black;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+}
+
+.modal {
+    background: white;
+    z-index: 101;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 25%;
+    min-width: 50%;
+    max-width: 50%;
+    margin-top: 5%;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+.modalDelete {
+    float: right;
+    cursor: pointer;
+}
+
+.modal h2 {
+    text-align: center;
+}
+
+.modal hr {
+    opacity: 0.5;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
 *[data-hidden] {
     display: none !important;
 }

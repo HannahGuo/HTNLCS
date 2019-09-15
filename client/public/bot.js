@@ -24,7 +24,8 @@ chatTable.push({
     message: "",
     author: username,
     type: "join",
-    channel, //TODO
+    channel,
+    sentAt: new Date()
 });   
 conversationStates[channel] = {
     value: "",
@@ -75,7 +76,8 @@ const loadChannel = language => {
             message: "",
             author: username,
             type: "join",
-            channel, //TODO
+            channel,
+            sentAt: new Date()
         });   
         joinedConversations.push(language);
     }
@@ -115,6 +117,7 @@ const sendChatMessage = async () => {
             author: username,
             type: "leave",
             channel, //TODO
+            sentAt: new Date()
         });
         document.querySelector("#chatInput").disabled = true;
 
@@ -134,7 +137,8 @@ const sendChatMessage = async () => {
         message: value,
         author: username,
         type: "message",
-        channel, //TODO
+        channel,
+        sentAt: new Date()
     });
 };
 

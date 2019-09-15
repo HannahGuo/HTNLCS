@@ -30,6 +30,13 @@ export default class BodyBot extends Component {
               <button className={style.chatBoxButton} id="sendChatButton">Send</button>
             </div>
           </div>
+          <div className={style.modalBackground} data-modal="background" data-hidden></div>
+          <div className={style.modal} data-modal="content" data-hidden>
+            <span className={style.modalDelete} data-modal="delete">X</span>
+            <h2>Modal Title</h2>
+            <hr />
+            <p>Content</p>
+          </div>
         </div>
       </div>
     );
