@@ -6,8 +6,6 @@ const firebase = require("firebase-admin");
 const synonyms = require("synonyms");
 const app = express();
 const server = require("http").createServer(app);
-const socket = require("socket.io")(server);
-
 app.use(require("body-parser").json());
 
 firebase.initializeApp({
@@ -22,6 +20,7 @@ const database = firebase.database();
  * @typedef GradeRequest
  * /api/grade request parameters.
  * @property {string} text
+ * @property {string} username
  * @property {string} language 
  */
 
@@ -98,33 +97,13 @@ app.post("/api/grade", async (req, res) => {
                 return a + b
             }, 0) / sentences.length,
         markedOn: new Date(),
-
+        username: data.username,
+        language: data.language
     };
 
     database.ref("grades").push(payload);
 
     res.json(payload);
-
-});
-
-socket.on("connection", s => {
-    /** @type {string} */
-    let room;
-    let name;
-    s.on("joinRequest", /** @param {ConnectRequest} data */data => {
-        room = `lang-${data.language}`;
-        s.join(room);
-        name = data.name;
-        s.emit("room", room);
-    });
-
-    s.on("message", message => {
-        socket.emit("message", {
-            message,
-            language: room,
-            name
-        }); // TODO: Not important right now but filtering for xss.
-    });
 });
 
 server.listen(1010, () => {
