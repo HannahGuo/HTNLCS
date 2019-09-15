@@ -38,7 +38,7 @@ const database = firebase.database();
 app.post("/api/grade", async (req, res) => {
     const data = /** @type {GradeRequest} */(req.body);
 
-    const spellCheckData = await spellCheck(data.text);
+    const spellCheckData = await spellCheck(data.text) || [];
 
     const sentences = data.text.split(/\?|\.|\!/)
         .filter(sentence => sentence.length > 0);

@@ -59,6 +59,9 @@ window.addEventListener("load", () => {
     };
 
     chatTable.on("value", snapshot => {
+
+        
+
         const messages = snapshot.val();
         for (const id in messages) {
             if (!document.querySelector(`div[message-id="${id}"]`) && messages[id].channel === channel) {
