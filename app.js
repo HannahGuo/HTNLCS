@@ -68,7 +68,7 @@ app.post("/api/grade", async (req, res) => {
 
     const tooCommonWords = [];
     for (const word in mostCommonWords) {
-        if (mostCommonWords[word] > 3) {
+        if (mostCommonWords[word] >= 3) {
             tooCommonWords.push(word);
         }
     }

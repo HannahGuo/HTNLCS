@@ -129,7 +129,22 @@ const sendChatMessage = async () => {
         });
         
         // TODO: DO SOMETHING WITH THAT DATA.
-        console.log(data);
+        ModalAPI.show({
+            title: `Results - ${channel.slice(0, 1).toLocaleUpperCase()}${channel.slice(1)}`
+        });
+        document.querySelector("span[data-value='grade']").textContent = Number(data.grade.total.toFixed(2));
+        document.querySelector("span[data-value='spelling']").textContent = Number(data.grade.spelling.toFixed(2));
+        document.querySelector("span[data-value='words']").textContent = Number(data.grade.uniqueness.toFixed(2));
+        document.querySelector("span[data-value='wordAverage']").textContent = Math.round(data.averageWordsPerSentence);
+
+        let text = "";
+
+        for (const word in data.words.suggestions) {
+            text += `Instead of <strong>${word}</strong>, why not try <strong style='color: green;'>${data.words.suggestions[word][Math.floor(Math.random() * data.words.suggestions[word].length)]}</strong>?<br />`;
+        }
+        
+
+        document.querySelector("p[data-value='suggestions']").innerHTML = text + "<br />";
         return;
     }
     conversation += value + " ";

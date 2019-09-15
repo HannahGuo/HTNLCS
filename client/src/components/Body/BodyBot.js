@@ -35,7 +35,17 @@ export default class BodyBot extends Component {
             <span className={style.modalDelete} data-modal="delete">X</span>
             <h2>Modal Title</h2>
             <hr />
-            <p>Content</p>
+            <span>
+                Good job! You scored <strong><span data-value="grade" style={{color: "green"}}></span>% out of 100%!</strong><br /><br />
+                
+                  <p><strong>Spelling Score:</strong> <span data-value="spelling" style={{color: "green"}}></span>%</p>
+                  <p><strong>Word Usage:</strong> <span data-value="words" style={{color: "green"}}></span>%</p><br />
+                
+                  <p data-value="suggestions"></p>
+
+                  <p>Did you know that you type an average of <strong><span data-value="wordAverage"></span> words per sentence?</strong></p>
+                
+            </span>
           </div>
         </div>
       </div>

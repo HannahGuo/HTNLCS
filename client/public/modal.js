@@ -14,6 +14,7 @@ window.addEventListener("load", () => {
         document.querySelector("div[data-modal='background']").removeAttribute("data-hidden");
         document.querySelector("div[data-modal='content']").removeAttribute("data-hidden");
         document.querySelector("div[data-modal='content'] h2").textContent = options.title;
+        document.documentElement.scrollTop = 0;
     };
 
     ModalAPI.hide = () => {
