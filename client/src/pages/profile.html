@@ -80,7 +80,7 @@
                             // }
 
                             if (thisElement.author == localStorage.getItem(
-                                    "username")) {
+                                    "username") && thisElement.type === "message") {
                                 userLogs.push(thisElement);
                             }
                         });
