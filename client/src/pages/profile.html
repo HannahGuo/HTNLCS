@@ -26,7 +26,7 @@
         #myBtn {
             display: none;
             position: fixed;
-            bottom: 6vw;
+            bottom: 1vw;
             right: 30px;
             z-index: 99;
             font-size: 18px;
@@ -41,6 +41,12 @@
 
         #footer {
             margin-left: 10vw;
+        }
+
+        table,
+        td {
+            border: 1px solid black;
+            padding: 1vw;
         }
     </style>
     <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
@@ -73,15 +79,10 @@
                             //     userLogs.push(thisElement);
                             // }
 
-                            if (thisElement.author == localStorage.getItem("username")) {
+                            if (thisElement.author == localStorage.getItem(
+                                    "username")) {
                                 userLogs.push(thisElement);
                             }
-                            //childNodes.key is key of the children of userid such as (20170710)
-                            //childNodes.val().name;
-                            //childNodes.val().time;
-                            //childNodes.val().rest_time;
-                            //childNodes.val().interval_time;
-
                         });
                         resolve(userLogs);
                     });
@@ -118,7 +119,8 @@
                 let thisJSON = [];
                 for (let i = 0; i < Object.values(updateMyValues).length; i++) {
                     thisJSON.push({
-                        y: (updateMyValues[Object.keys(updateMyValues)[i]] / sumValues(updateMyValues)) * 100,
+                        y: ((updateMyValues[Object.keys(updateMyValues)[i]] / sumValues(
+                            updateMyValues)) * 100).toFixed(2),
                         label: Object.keys(updateMyValues)[i].toLocaleUpperCase(),
                     });
                 }
@@ -126,7 +128,7 @@
                 return thisJSON;
             }
 
-            function renderChart() {
+            function renderPieChart() {
                 console.log("sa");
                 var chart = new CanvasJS.Chart("chartContainer", {
                     theme: "light2", // "light1", "light2", "dark1", "dark2"
@@ -146,7 +148,28 @@
                 chart.render();
                 // console.log(getDataPoints());
             }
-            renderChart();
+            renderPieChart();
+
+            function updatePastLogs() {
+                console.log(userLogs);
+                var table = document.getElementById("myTable");
+                for (let i = 0; i < userLogs.length; i++) {
+                    var row = table.insertRow(-1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    cell1.innerHTML = "";
+                    cell2.innerHTML = "Channel: " + userLogs[i].channel + " <br>Message: " + userLogs[i]
+                        .message;
+                    // cell3.innerHTML = "Stats: <br> Total: " + userLogs[i].grade.total + "<br> Spelling: " +
+                    //     userLogs[i].grade.spelling + "<br> Word Uniqueness: " + userLogs[i].grade
+                    //     .uniqueness;
+                    document.getElementById("brMe").innerHTML = document.getElementById("brMe")
+                        .innerHTML +
+                        "<br><br><br>";
+                }
+            }
+            updatePastLogs();
         });
     </script>
 </head>
@@ -172,7 +195,16 @@
     </div>
     <div id="pastLogs" style="height: 300px; width: 80%; margin: 0 auto; margin-bottom: 5vh">
         <h2>Past Logs</h2>
+        <table id="myTable" style="margin-bottom: 10vh; border: 1px solid black;">
+            <tr>
+                <td>Date</td>
+                <td>Data</td>
+                <td>Stats</td>
+            </tr>
+        </table>
     </div>
+    <div id="brMe"></div>
+    <br>
     <button onclick="topFunction()" id="myBtn" title="Go to top">↑ Scroll to Top ↑</button>
     <div id="footer"></div>
 </body>
