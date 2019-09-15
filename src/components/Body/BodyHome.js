@@ -24,13 +24,6 @@ export default class BodyHome extends Component {
           <br />
           <br />
           <h3>Botlingual!</h3>
-          <br />
-          <br />
-          <hr />
-          <br />
-          Made with ❤️ using ReactJS at Hack the North 2019 by Hannah Guo and William Qi.
-          <br />
-          <br />
         </div>
       </div>
     );
