@@ -7,4 +7,3 @@ import Footer from 'components/Footer/Footer';
 
 ReactDOM.render(<Menu />, document.getElementById('menu'));
 ReactDOM.render(<BodyProfile />, document.getElementById('body'));
-ReactDOM.render(<Footer />, document.getElementById('footer'));
